@@ -1,12 +1,52 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+    <style>
+    .timelineOutput {
+        display: flex;
+    }
+    
+    .timeline {
+        height: 40px;
+        width: 60px;
+        border-bottom: 1px solid gray;
+        border-right: 1px solid gray;
+        font-size: 20px;
+        text-align: center;
+        line-height: 40px;
+        position: relative;
+    }
+    
+    .tick {
+        font-size: 10px;
+        line-height: 10px;
+        text-align: left;
+        position: absolute;
+        bottom: 2px;
+        left: 2px;
+    }
+    </style>
     <script type="application/x-javascript" src="app/crowdControlTestData.js"></script>
     <script type="application/x-javascript" src="app/crowdControlCalc.js"></script>
 </head>
-<body>
 
+<body>
+    <h1>Crowd Control Calculator</h1>
+    <h2>Timeline Data Output</h2>
+    <div class="timelineOutput"></div>
+    <h2>Raw Data Output</h2>
+    <div class="outputTable"></div>
+    <script>
+    // store the results of a random piece of data from the sample data
+    var outputData = crowdControlCalc.calculateCrowdControlChange(crowdControlTestData.randomTestInput());
+
+    // call output utility functions
+    crowdControlCalc.outputDataTable(outputData);
+    crowdControlCalc.outputDataTimeline(outputData);
+    </script>
 </body>
+
 </html>
